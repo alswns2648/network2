@@ -16,9 +16,9 @@ public class SimpleHttpServer {
 		try {
 			// 1. Create Server Socket
 			serverSocket = new ServerSocket();
-			   
+
 			// 2. Bind
-			//String localhost = InetAddress.getLocalHost().getHostAddress();
+			// String localhost = InetAddress.getLocalHost().getHostAddress();
 			String localhost = "0.0.0.0";
 			serverSocket.bind( new InetSocketAddress( localhost, PORT ) );
 			consolLog("bind " + localhost + ":" + PORT);
@@ -27,7 +27,7 @@ public class SimpleHttpServer {
 				// 3. Wait for connecting ( accept )
 				Socket socket = serverSocket.accept();
 
-				// 4. Delegate(위임) Processing Request
+				// 4. Delegate Processing Request
 				new RequestHandler(socket).start();
 			}
 
